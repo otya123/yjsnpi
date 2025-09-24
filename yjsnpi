@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>野獣先輩伝説サイト</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #222;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      color: #ff4444;
+      font-size: 3rem;
+      margin: 0;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff4444; }
+      to { text-shadow: 0 0 20px #ff8888; }
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4444;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 200px;
+      border-radius: 50%;
+      border: 3px solid #ff4444;
+    }
+
+    .bio {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .fan-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .bubble {
+      background-color: #444;
+      border-radius: 15px;
+      padding: 1rem 2rem;
+      max-width: 400px;
+      position: relative;
+      margin: 1rem 0;
+      animation: floatUp 10s linear infinite;
+    }
+
+    .bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 0; 
+      height: 0; 
+      border: 10px solid transparent;
+      border-top-color: #444;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(-40px); opacity: 0; }
+    }
+
+    footer {
+      background-color: #222;
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>野獣先輩伝説サイト</h1>
+  </header>
+
+  <nav>
+    <a href="#profile">プロフィール</a>
+    <a href="#contents">名言まとめ</a>
+  </nav>
+
+  <section id="profile" class="section profile">
+    <h2>野獣先輩プロフィール</h2>
+    <img src="yjsnpi.png" alt="野獣先輩アイコン">
+    <div class="bio">
+      名前：田所浩二<br>
+    </div>
+  </section>
+
+  <section id="contents" class="section fan-content">
+    <h2>伝説まとめ</h2>
+    <div class="bubble">名言その1：ま、多少はね？</div>
+    <div class="bubble">名言その2：はっきり分かんだね。</div>
+    <div class="bubble">名言その3：+悔い改めて+</div>
+  </section>
+
+  <footer>
+    &copy; 2025 野獣先輩伝説サイト | ファンサイト
+  </footer>
+
+  <script>
+    const bubbles = document.querySelectorAll('.bubble');
+    window.addEventListener('scroll', () => {
+      bubbles.forEach((b, i) => {
+        const offset = window.scrollY / (i + 1);
+        b.style.transform = `translateY(${-40 + offset % 40}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
